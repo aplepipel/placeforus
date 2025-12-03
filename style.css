@@ -20,15 +20,16 @@ body {
   z-index: -1;
 }
 
+/* RESPONSIVE SLIDER */
 .slider {
   display: flex;
-  width: 400vw;
+  width: 100%; /* sebelumnya 400vw */
   height: 100vh;
   transition: transform 0.8s cubic-bezier(.25,.8,.25,1);
 }
 
 .slide {
-  width: 100vw;
+  min-width: 100vw; /* penting biar responsive */
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -44,6 +45,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Card */
 .card {
   background: rgba(255,255,255,0.07);
   padding: 25px;
@@ -86,7 +88,7 @@ body {
   transform: scale(1.06);
 }
 
-/* Polaroid stack styling */
+/* Polaroid stack */
 .polaroid-stack {
   position: relative;
   width: 260px;
@@ -94,7 +96,6 @@ body {
   margin: auto;
 }
 
-/* Base style untuk foto polaroid */
 .polaroid-stack img {
   width: 100%;
   height: 100%;
@@ -106,13 +107,12 @@ body {
   cursor: pointer;
   box-shadow: 0 8px 22px rgba(0,0,0,0.35);
 
-  /* TRANSISI DASAR */
   transition:
     transform 0.6s ease,
     opacity 0.6s ease;
 }
 
-/* Posisi awal dan tilt aesthetic */
+/* Aesthetic tilt */
 .polaroid-stack img:nth-child(1) {
   transform: rotate(-3deg);
   z-index: 3;
@@ -126,7 +126,7 @@ body {
   z-index: 1;
 }
 
-/* Efek ketika foto sedang turun */
+/* Anim saat foto turun */
 .polaroid-stack img.moving {
   transform: translateY(35px) scale(0.95) rotate(0deg) !important;
   opacity: 0;
@@ -167,4 +167,44 @@ body {
 
 .nav button:hover {
   transform: scale(1.15);
+}
+
+/* ====================== MOBILE FRIENDLY ====================== */
+@media (max-width: 480px) {
+
+  .card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .polaroid img {
+    border-radius: 10px;
+  }
+
+  .cover {
+    border-radius: 10px;
+  }
+
+  .polaroid-stack {
+    width: 200px;
+    height: 200px;
+  }
+
+  .polaroid-stack img {
+    border-radius: 14px;
+  }
+
+  .message {
+    width: 85%;
+    padding: 20px;
+  }
+
+  .nav button {
+    padding: 10px 18px;
+    font-size: 18px;
+  }
+
+  body {
+    overflow-x: hidden; /* stop geser samping di HP */
+  }
 }
