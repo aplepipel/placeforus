@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a12;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* Particle background */
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.slider {
+  display: flex;
+  width: 400vw;
+  height: 100vh;
+  transition: transform 0.8s cubic-bezier(.25,.8,.25,1);
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: rgba(255,255,255,0.07);
+  padding: 25px;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.caption { margin-top: 10px; font-weight: 600; }
+.desc { opacity: .7; font-size: 14px; margin-top: 10px; }
+
+/* Polaroid */
+.polaroid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
+/* Music */
+.cover {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.music-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.music-btn:hover {
+  transform: scale(1.06);
+}
+
+/* Polaroid stack styling */
+.polaroid-stack {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: auto;
+}
+
+/* Base style untuk foto polaroid */
+.polaroid-stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+
+  /* TRANSISI DASAR */
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+/* Posisi awal dan tilt aesthetic */
+.polaroid-stack img:nth-child(1) {
+  transform: rotate(-3deg);
+  z-index: 3;
+}
+.polaroid-stack img:nth-child(2) {
+  transform: rotate(2deg);
+  z-index: 2;
+}
+.polaroid-stack img:nth-child(3) {
+  transform: rotate(-1deg);
+  z-index: 1;
+}
+
+/* Efek ketika foto sedang turun */
+.polaroid-stack img.moving {
+  transform: translateY(35px) scale(0.95) rotate(0deg) !important;
+  opacity: 0;
+}
+
+/* Message page */
+.message {
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 15px;
+  width: 75%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.signed { margin-top: 15px; opacity: .6; }
+
+/* Navigation */
+.nav {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav button {
+  padding: 12px 22px;
+  font-size: 22px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  color: black;
+  margin: 0 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav button:hover {
+  transform: scale(1.15);
+}
