@@ -9,8 +9,8 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;   /* Biar tidak geser kiri-kanan */
-  overflow-y: hidden;   /* Biar tidak scroll ke bawah */
+  overflow-x: hidden;
+  overflow-y: auto;  /* allow vertical scroll if needed */
 }
 
 body {
@@ -178,3 +178,4 @@ body {
     font-size: 18px;
   }
 }
+
